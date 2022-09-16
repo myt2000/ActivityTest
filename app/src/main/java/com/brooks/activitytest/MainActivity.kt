@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFruits(){
-        repeat(2){
+        repeat(3){
             fruitList.add(Fruit("Apple", R.drawable.apple))
             fruitList.add(Fruit("Banana", R.drawable.banana))
             fruitList.add(Fruit("Orange", R.drawable.orange))
