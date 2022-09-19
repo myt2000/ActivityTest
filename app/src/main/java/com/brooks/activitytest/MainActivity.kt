@@ -2,7 +2,7 @@ package com.brooks.activitytest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,12 +13,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initFruits()    // 初始化数据实例
-        val adapter = FruitAdapter(this, R.layout.fruit_item, fruitList)
-        listView.adapter = adapter
-        listView.setOnItemClickListener{ parent, view, position,id ->
-            val fruit = fruitList[position]
-            Toast.makeText(this, fruit.name, Toast.LENGTH_SHORT).show()
-        }
+        val layoutManager = LinearLayoutManager(this)
+        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+        recyclerView.layoutManager = layoutManager
+        val adapter = FruitAdapter(fruitList)
+        recyclerView.adapter = adapter
     }
 
     private fun initFruits(){
